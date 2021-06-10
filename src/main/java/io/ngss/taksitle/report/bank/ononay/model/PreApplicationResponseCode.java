@@ -5,7 +5,7 @@ public enum PreApplicationResponseCode {
     OK(200),
 //    ON_DEGERLENDIRME_YOK(300),
     RET(400),
-    NotExist(0),
+    NOTEXIST(0),
     TEKNIK_ARIZA(500);
 
     private int id;
