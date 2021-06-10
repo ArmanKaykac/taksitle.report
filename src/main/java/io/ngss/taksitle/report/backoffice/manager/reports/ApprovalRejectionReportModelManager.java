@@ -9,6 +9,7 @@ import io.ngss.taksitle.report.dealer.TransactionState;
 import io.ngss.taksitle.report.transaction.database.Transaction;
 import io.ngss.taksitle.report.transaction.repository.TransactionRepository;
 import io.ngss.test.TransactionRepositoryNewDB;
+import io.ngss.test.helper.BackOfficeReportHelperNewDB;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +23,10 @@ import java.util.stream.Collectors;
 public class ApprovalRejectionReportModelManager extends BaseReportModel<ApprovalRejectionReportModel, ApprovalRejectionReportSearchModel> {
 
     @Autowired
-    private TransactionRepository transactionRepository;
+    private TransactionRepositoryNewDB transactionRepository;
 
     @Autowired
-    private BackOfficeReportHelper backOfficeReportHelper;
+    private BackOfficeReportHelperNewDB backOfficeReportHelper;
 
     @Override
     public List<ApprovalRejectionReportModel> filterModel(ApprovalRejectionReportSearchModel searchModel) {

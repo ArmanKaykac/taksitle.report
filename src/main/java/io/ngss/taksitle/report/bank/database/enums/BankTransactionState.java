@@ -35,8 +35,8 @@ public enum BankTransactionState {
         if (responseCode == PreApplicationResponseCode.OK)
             return ON_DEGERLENDIRME_OLUMLU;
 
-        if (responseCode == PreApplicationResponseCode.ON_DEGERLENDIRME_YOK)
-            return ON_DEGERLENDIRME_YOK;
+//        if (responseCode == PreApplicationResponseCode.ON_DEGERLENDIRME_YOK)
+//            return ON_DEGERLENDIRME_YOK;
 
         if (responseCode == PreApplicationResponseCode.RET)
             return ON_DEGERLENDIRME_OLUMSUZ;

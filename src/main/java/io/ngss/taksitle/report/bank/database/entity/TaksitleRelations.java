@@ -1,5 +1,6 @@
 package io.ngss.taksitle.report.bank.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.ngss.taksitle.report.bank.database.enums.CreditType;
 import io.ngss.taksitle.report.bank.database.enums.SBUPeriod;
 import io.ngss.taksitle.report.dealer.database.entity.dealer.Dealer;
@@ -18,6 +19,7 @@ public class TaksitleRelations {
     @ElementCollection(targetClass= CreditType.class)
     @Enumerated(EnumType.STRING)
     @JoinTable(name = "dealer_creditTypes")
+    @JsonIgnore // arman
     @Column(name="creditTypes")
     Set<CreditType> creditTypes;
 

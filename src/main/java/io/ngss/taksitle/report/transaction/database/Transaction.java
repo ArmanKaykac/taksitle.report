@@ -17,8 +17,11 @@ import io.ngss.taksitle.report.shared.database.entity.SMSHistory;
 import io.ngss.taksitle.report.transaction.database.entity.DeliveryInfo;
 import io.ngss.taksitle.report.transaction.database.entity.RefundRequest;
 import io.ngss.taksitle.report.transaction.database.entity.TransactionHistoryLog;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -90,12 +93,13 @@ public class Transaction extends DateAudit {
 
     @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JsonBackReference(value = "customerLoanRequest")
+    @NotFound(action = NotFoundAction.IGNORE)
     @JoinColumn(name = "loanrequest_id")
     private LoanRequest loanRequest;
 
     @OneToOne
     @JsonIgnoreProperties(value = "transaction")
-    @JoinColumn(name = "deliveryInfo_id")
+    @JoinColumn(name = "delivery_info_id")
     private DeliveryInfo deliveryInfoS;
 
     @OneToOne(cascade = CascadeType.ALL)

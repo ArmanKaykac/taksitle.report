@@ -24,9 +24,11 @@ public class City {
     private Long id;
 
     @OneToMany(mappedBy = "homeCity")
+    @JsonIgnore // arman
     private List<CustomerHistory> customerHistories;
 
     @OneToMany(mappedBy = "city")
+    @JsonIgnore // arman
     private List<District> districtList;
 
     @OneToMany(mappedBy = "city")

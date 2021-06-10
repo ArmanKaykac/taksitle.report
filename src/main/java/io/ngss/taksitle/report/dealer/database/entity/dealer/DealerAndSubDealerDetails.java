@@ -1,7 +1,10 @@
 package io.ngss.taksitle.report.dealer.database.entity.dealer;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.ngss.taksitle.report.dealer.database.City;
 import io.ngss.taksitle.report.dealer.database.enums.*;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -93,19 +96,19 @@ public class DealerAndSubDealerDetails {
     private Dealer dealer;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "salesChannel")
+    @Column(name = "sales_channel")
     private SalesChannel salesChannel;
 
     @Column(name = "initial_investment")
     private Long initialInvestment;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "locationType")
+    @Column(name = "location_type")
     private LocationType locationType;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "priceStrategy")
-    private PriceStrategy priceStrategy;
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "priceStrategy")
+//    private PriceStrategy priceStrategy;
 
     @Column(name = "area_m2")
     private Integer areaM2;
@@ -437,13 +440,13 @@ public class DealerAndSubDealerDetails {
         this.dealerAccountBank = dealerAccountBank;
     }
 
-    public PriceStrategy getPriceStrategy() {
-        return priceStrategy;
-    }
-
-    public void setPriceStrategy(PriceStrategy priceStrategy) {
-        this.priceStrategy = priceStrategy;
-    }
+//    public PriceStrategy getPriceStrategy() {
+//        return priceStrategy;
+//    }
+//
+//    public void setPriceStrategy(PriceStrategy priceStrategy) {
+//        this.priceStrategy = priceStrategy;
+//    }
 
     public Integer getTotalSalesPersonal() {
         return totalSalesPersonal;

@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.*;
 
 @Entity
-@Table(name = "DealerFinances")
+@Table(name = "dealer_finances")
 public class DealerFinances {
 
     @Id
@@ -20,46 +20,46 @@ public class DealerFinances {
     @OneToOne
     private Dealer dealer;
 
-    @Column(name = "fiscalYear")
+    @Column(name = "fiscal_year")
     private Integer fiscalYear;
 
-    @Column(name = "taxBase")
+    @Column(name = "tax_base")
     private Double taxBase;
 
     @Column(name = "capital")
     private Double capital;
 
-    @Column(name = "salesLastYear")
+    @Column(name = "sales_last_year")
     private Double salesLastYear;
 
-    @Column(name = "isSalesIncreasingInLastThreeYears")
+    @Column(name = "is_sales_increasing_in_last_three_years")
     private Boolean isSalesIncreasingInLastThreeYears = false;
 
-    @Column(name = "cashSales")
+    @Column(name = "cash_sales")
     private Double cashSales;
 
-    @Column(name = "creditCardSales")
+    @Column(name = "credit_card_sales")
     private Double creditCardSales;
 
-    @Column(name = "bondSales")
+    @Column(name = "bond_sales")
     private Double bondSales;
 
-    @Column(name = "checkSales")
+    @Column(name = "check_sales")
     private Double checkSales;
 
-    @Column(name = "creditSales")
+    @Column(name = "credit_sales")
     private Double creditSales;
 
-    @Column(name = "creditCardAvgMaturity")
+    @Column(name = "credit_card_avg_maturity")
     private Integer creditCardAvgMaturity;
 
-    @Column(name = "bondAvgMaturity")
+    @Column(name = "bond_avg_maturity")
     private Integer bondAvgMaturity;
 
-    @Column(name = "checkAvgMaturity")
+    @Column(name = "check_avg_maturity")
     private Integer checkAvgMaturity;
 
-    @Column(name = "creditAvgMaturity")
+    @Column(name = "credit_avg_maturity")
     private Integer creditAvgMaturity;
 
     @ElementCollection(targetClass = FinancialCompanies.class)
@@ -72,31 +72,31 @@ public class DealerFinances {
     @Column(name = "banks")
     private Set<Bank> bank;
 
-    @Column(name = "capitalFinanced")
+    @Column(name = "capital_financed")
     private Double capitalFinanced;
 
-    @Column(name = "cashBlockageFinanced")
+    @Column(name = "cash_blockage_financed")
     private Double cashBlockageFinanced;
 
-    @Column(name = "letterOfGuaranteeFinanced")
+    @Column(name = "letter_of_guarantee_financed")
     private Double letterOfGuaranteeFinanced;
 
-    @Column(name = "hypothecFinanced")
+    @Column(name = "hypothec_financed")
     private Double hypothecFinanced;
 
-    @Column(name = "checkBondFinanced")
+    @Column(name = "check_bond_financed")
     private Double checkBondFinanced;
 
-    @Column(name = "cashCreditFinanced")
+    @Column(name = "cash_credit_financed")
     private Double cashCreditFinanced;
 
-    @Column(name = "stockFinanced")
+    @Column(name = "stock_financed")
     private Double stockFinanced;
 
-    @Column(name = "accountFinanced")
+    @Column(name = "account_financed")
     private Double accountFinanced;
 
-    @Column(name = "expectedCreditVolume")
+    @Column(name = "expected_credit_volume")
     private Double expectedCreditVolume;
 
 

@@ -1,6 +1,5 @@
 package io.ngss.taksitle.report.bank.database.entity;
 
-import io.ngss.taksitle.report.bank.database.enums.BankTransactionState;
 import io.ngss.taksitle.report.bank.ononay.model.PreApplicationResponseCode;
 import io.ngss.taksitle.report.bank.ononay.model.ProblemReason;
 import io.ngss.taksitle.report.customermanagement.Customer;
@@ -20,6 +19,7 @@ public class PreApplicationRequest {
     private Transaction transaction;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "pre_application_response_code")
     private PreApplicationResponseCode preApplicationResponseCode;
 
     @ManyToOne
@@ -40,13 +40,15 @@ public class PreApplicationRequest {
     private int categoryId;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "problem_reason")
     private ProblemReason problemReason; //KRED - 350
 
     @Column(name = "kkb_score")
     private String kkbScore;
 
-    @Enumerated(EnumType.STRING)
-    private BankTransactionState bankTransactionState;
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "banktransactionstate")
+//    private BankTransactionState bankTransactionState;
 
 
     public PreApplicationRequest(Transaction transaction, PreApplicationResponseCode preApplicationResponseCode, Bank bank, Double amount, Customer customer, int categoryId, ProblemReason problemReason, String bankParameters, String bankResponse, String kkbScore) {
@@ -148,13 +150,13 @@ public class PreApplicationRequest {
         this.kkbScore = kkbScore;
     }
 
-    public BankTransactionState getBankTransactionState() {
-        return bankTransactionState;
-    }
-
-    public void setBankTransactionState(BankTransactionState bankTransactionState) {
-        this.bankTransactionState = bankTransactionState;
-    }
+//    public BankTransactionState getBankTransactionState() {
+//        return bankTransactionState;
+//    }
+//
+//    public void setBankTransactionState(BankTransactionState bankTransactionState) {
+//        this.bankTransactionState = bankTransactionState;
+//    }
 
     @Override
     public String toString() {
@@ -170,7 +172,7 @@ public class PreApplicationRequest {
                 ", categoryId=" + categoryId +
                 ", problemReason=" + problemReason +
                 ", kkbScore='" + kkbScore + '\'' +
-                ", bankTransactionState='" + bankTransactionState + '\'' +
+//                ", bankTransactionState='" + bankTransactionState + '\'' +
                 '}';
     }
 }

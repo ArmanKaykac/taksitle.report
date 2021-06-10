@@ -1,6 +1,7 @@
 package io.ngss.taksitle.report.dealer.database.entity.dealer;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import io.ngss.taksitle.report.bank.LoanCategory;
 import io.ngss.taksitle.report.bank.database.entity.Bank;
@@ -55,9 +56,11 @@ public class Dealer {
     @Column(name = "certificate_password")
     private String certificatePassword;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name="CompanyType")
-    private CompanyType companyType;
+//    @Enumerated(EnumType.STRING)
+//    @Column(name="CompanyType")
+////    @NotFound(action=NotFoundAction.IGNORE)
+//    @JsonIgnore
+//    private CompanyType companyType;
 
     @ManyToMany
     @CollectionTable(
@@ -76,7 +79,8 @@ public class Dealer {
     @OneToOne(
             mappedBy = "dealer",
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.LAZY,
+            optional = false
     )
     private DealerAndSubDealerDetails dealerAndSubDealerDetails;
 
@@ -110,7 +114,6 @@ public class Dealer {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "dealer_finances_id")
-    @NotFound(action = NotFoundAction.IGNORE)
     private DealerFinances dealerFinances;
 
     @ManyToMany
@@ -125,12 +128,8 @@ public class Dealer {
     @Column(name="loanCategories")
     Set<LoanCategory> loanCategories;
 
-    @Column(name = "isVIP")
+    @Column(name = "isvip")
     private Boolean isVip;
-
-    @Enumerated(EnumType.STRING)
-    public Channel channel;
-
 
     public Boolean getVip() {
         return isVip;
@@ -224,13 +223,13 @@ public class Dealer {
         this.legalName = legalName;
     }
 
-    public CompanyType getCompanyType() {
-        return companyType;
-    }
-
-    public void setCompanyType(CompanyType companyType) {
-        this.companyType = companyType;
-    }
+//    public CompanyType getCompanyType() {
+//        return companyType;
+//    }
+//
+//    public void setCompanyType(CompanyType companyType) {
+//        this.companyType = companyType;
+//    }
 
     public List<DealerVendorRelations> getDealerVendorRelations() {
         return dealerVendorRelations;

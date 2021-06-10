@@ -1,9 +1,12 @@
 package io.ngss.taksitle.report.bank.database.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import io.ngss.taksitle.report.bank.LoanCategory;
 import io.ngss.taksitle.report.dealer.database.entity.Cart;
 import io.ngss.taksitle.report.transaction.database.Transaction;
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 import javax.persistence.*;
 

@@ -12,7 +12,7 @@ import java.util.Optional;
 public interface ConfigurationRepository extends JpaRepository<Configuration, Long> {
     List<Configuration> findAllByConfigName(ConfigParameter configName);
 
-    Configuration findByLoanCategoryAndChannel(LoanCategory loanCategory, Channel channel);
+    //Configuration findByLoanCategoryAndChannel(LoanCategory loanCategory, Channel channel);
 
     Optional<Configuration> findByConfigName(ConfigParameter configParameter);
 }

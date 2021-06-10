@@ -40,6 +40,7 @@ public interface TransactionRepository extends JpaRepository<Transaction, Long>,
     List<Transaction> findAllByStateUpdateDateAfter(Date createdDate);
 
     List<Transaction> findAllByCreatedAtIsAfter(Date createdDate);
+    //List<Transaction> findAllByUpdatedAtIsAfter(Date updatedDate);
 
     List<Transaction> findAllByCustomerTcknoAndDealerIdAndTransactionStateNotInAndLoanRequestLoanCategory (Long tckno, Long dealerId, TransactionState[] transactionStates, LoanCategory loanCategory);
 

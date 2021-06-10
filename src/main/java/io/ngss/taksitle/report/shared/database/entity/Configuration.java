@@ -10,28 +10,14 @@ import javax.persistence.*;
 @Entity
 @Table(name = "configuration")
 public class Configuration {
-
-    @Enumerated(EnumType.STRING)
-    public LoanCategory loanCategory;
-    @Enumerated(EnumType.STRING)
-    public Channel channel;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Enumerated
     private ConfigParameter configName;
+
     private String configValue;
-
-    public static Configuration createLoanCategoryAndChannelBasedLoanOfferTimeout(LoanCategoryAndChannelBasedOfferTimeoutModel model) {
-        Configuration configuration = new Configuration();
-
-        configuration.configName = ConfigParameter.LOAN_CATEGORY_AND_CHANNEL_BASED_LOAN_OFFER_TIMEOUT;
-        configuration.loanCategory = model.loanCategory;
-        configuration.channel = model.channel;
-        configuration.configValue = String.valueOf(model.timeout);
-
-        return configuration;
-    }
 
     public ConfigParameter getConfigName() {
         return configName;

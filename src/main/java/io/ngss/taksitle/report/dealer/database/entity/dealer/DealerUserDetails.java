@@ -42,6 +42,7 @@ public class DealerUserDetails {
     private String statue;
 
     @OneToOne()
+    @JoinColumn(name = "dealer_user_id")
     private DealerUser dealerUser;
 
     public Long getId() {

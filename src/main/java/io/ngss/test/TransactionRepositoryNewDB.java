@@ -5,17 +5,20 @@ import io.ngss.taksitle.report.bank.LoanCategory;
 import io.ngss.taksitle.report.dealer.TransactionState;
 import io.ngss.taksitle.report.shared.database.repository.RiskParametersCustomQuery;
 import io.ngss.taksitle.report.transaction.database.Transaction;
+import io.ngss.test.BackOfficeCustomQueryNewDB;
+import io.ngss.test.RiskParametersCustomQueryNewDB;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.math.BigInteger;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface TransactionRepositoryNewDB extends JpaRepository<Transaction, Long>, BackOfficeCustomQueryNewDB, RiskParametersCustomQueryNewDB{
+public interface TransactionRepositoryNewDB extends JpaRepository<Transaction, Long>, BackOfficeCustomQueryNewDB, RiskParametersCustomQueryNewDB {
     Transaction findByToken(Integer token);
 
     // List<Transaction> findAllByTransactionState(TransactionState state);
@@ -35,6 +38,8 @@ public interface TransactionRepositoryNewDB extends JpaRepository<Transaction, L
     // List<Transaction> findAllByTransactionStateIsInAndCreatedAtIsLessThanEqual(TransactionState[] stateList, Date currentDate);
 
     //  Optional<Transaction> findByTokenAndDealerId(Integer token, Long dealerId);
+
+    //List<Transaction> findAllWithDateAfter (LocalDate date);
 
     List<Transaction> findAllByDealerIdAndCreatedAtIsAfter (Long dealerId, Date startDate);
 

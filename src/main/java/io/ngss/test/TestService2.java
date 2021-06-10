@@ -1,6 +1,12 @@
 package io.ngss.test;
 
+import io.ngss.taksitle.report.dealer.database.repository.BusinessConditionsRepository;
+import io.ngss.taksitle.report.dealer.database.repository.DealerFinancesRepository;
+import io.ngss.taksitle.report.dealer.database.repository.DealerRepository;
 import io.ngss.taksitle.report.transaction.repository.TransactionRepository;
+import io.ngss.test.DealerRepositoryNewDB;
+import io.ngss.test.TransactionHistoryLogRepositoryNewDB;
+import io.ngss.test.repository.DealerFinancesRepositoryNewDB;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,16 +24,23 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestService2 {
 
     @Autowired
-    DealerRepositoryNewDB dealerRepositoryNewDB;
+    DealerRepository dealerRepository;
+    @Autowired
+    DealerFinancesRepository dealerFinancesRepository;
+    @Autowired
+    DealerFinancesRepositoryNewDB dealerFinancesRepositoryNewDB;
+    @Autowired
+    BusinessConditionsRepository businessConditionsRepository;
 
     @Autowired
-    TransactionRepository transactionRepositoryNewDB;
+    TransactionRepository transactionRepository;
     @Autowired
     TransactionHistoryLogRepositoryNewDB transactionHistoryLogRepositoryNewDB;
 
     @PostMapping(value = "/transactionLastStateReport")
     @Transactional("transactionManager")
-    public ResponseEntity getTransactionLastStateCountReport() {
-        return new ResponseEntity(transactionRepositoryNewDB.findAll(), HttpStatus.OK);
+    public void getTransactionLastStateCountReport() {
+        // return new ResponseEntity(dealerRepository.findAll(), HttpStatus.OK);
+        System.out.println(businessConditionsRepository.findAll());
     }
 }

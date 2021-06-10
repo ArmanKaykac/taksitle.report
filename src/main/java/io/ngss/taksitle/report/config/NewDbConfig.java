@@ -1,4 +1,5 @@
 package io.ngss.taksitle.report.config;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -20,9 +21,11 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.HashMap;
+
 @Configuration
 @EnableJpaRepositories(
         entityManagerFactoryRef = "entityManagerFactory2",
+        transactionManagerRef = "transactionManager2",
         basePackages = { "io.ngss.test" }
 )
 public class NewDbConfig {

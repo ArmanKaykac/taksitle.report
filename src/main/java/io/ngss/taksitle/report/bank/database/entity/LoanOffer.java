@@ -92,10 +92,12 @@ public class LoanOffer {
 
     //@Column(name = "problemReason")
     @Enumerated(EnumType.STRING)
+    @Column(name = "problem_reason")
     private LoanOfferProblemReason problemReason;
 
-    @Enumerated(EnumType.STRING)
-    private BankTransactionState bankTransactionState;
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "banktransactionstate")
+//    private BankTransactionState bankTransactionState;
 
 
     public String getOfferParameters() {
@@ -298,11 +300,11 @@ public class LoanOffer {
         this.problemReason = problemReason;
     }
 
-    public BankTransactionState getBankTransactionState() {
-        return bankTransactionState;
-    }
-
-    public void setBankTransactionState(BankTransactionState bankTransactionState) {
-        this.bankTransactionState = bankTransactionState;
-    }
+//    public BankTransactionState getBankTransactionState() {
+//        return bankTransactionState;
+//    }
+//
+//    public void setBankTransactionState(BankTransactionState bankTransactionState) {
+//        this.bankTransactionState = bankTransactionState;
+//    }
 }

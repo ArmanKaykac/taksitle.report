@@ -10,7 +10,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "deliveryInfo")
+@Table(name = "delivery_info")
 public class DeliveryInfo extends DateAudit {
 
     @Id
@@ -26,7 +26,7 @@ public class DeliveryInfo extends DateAudit {
     @Column
     String description;
 
-    @Column
+    @Column(name = "delivery_date")
     Date deliveryDate;
 
     @Column(name = "type")
@@ -34,12 +34,12 @@ public class DeliveryInfo extends DateAudit {
     private DeliveryType type;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JsonIgnoreProperties(value = "deliveryInfo")
+    @JsonIgnoreProperties(value = "delivery_info")
     @JoinColumn(name = "transaction_id")
     private Transaction transaction;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JsonIgnoreProperties(value = "deliveryInfo")
+    @JsonIgnoreProperties(value = "delivery_info")
     @JoinColumn(name = "address_id")
     private Address address;
 

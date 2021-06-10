@@ -26,7 +26,7 @@ import java.util.stream.Collectors;
 public class GrayApprovalPeriodReportModelManager extends BaseReportModel<GrayApprovalPeriodReportModel, GrayApprovalPeriodReportSearchModel> {
 
     @Autowired
-    private TransactionRepository transactionRepository;
+    private TransactionRepositoryNewDB transactionRepository;
 
     private long greaterThanThreshold = 0;
 

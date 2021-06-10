@@ -2,6 +2,7 @@ package io.ngss.taksitle.report.dealer.database.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import io.ngss.taksitle.report.bank.database.entity.Bank;
 import io.ngss.taksitle.report.bank.database.entity.BankCommissionDefinitions;
@@ -29,6 +30,7 @@ public class BusinessConditions {
     @OneToMany(
             mappedBy = "businessConditions"
     )
+    @JsonIgnore // arman
     private Set<BankCommissionDefinitions> bankCommissionDefinitions;
 
     @Column(name = "platform_license_fee")

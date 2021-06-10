@@ -36,6 +36,8 @@ public class Document {
 
     @ManyToOne
     private Transaction transaction;
+
+    @Column(name = "bank_acceptance_status")
     private boolean bankAcceptanceStatus = false;
 
     @Lob

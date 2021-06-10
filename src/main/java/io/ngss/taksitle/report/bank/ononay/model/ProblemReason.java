@@ -15,6 +15,7 @@ public enum ProblemReason {
     Arac_yuksek_hasarli(PreApplicationResponseCode.RET, "11"),
     Esin_tasit_kredileri_yuksek_adette(PreApplicationResponseCode.RET, "12"),
     Esin_ticari_finansmani_suphesi(PreApplicationResponseCode.RET, "13"),
+    NotExist(PreApplicationResponseCode.NotExist,"0"),
     //Olumsuz_sektor_gelismesi(PreApplicationResponseCode.RET, "14"),
     //Yasal_mevzuat(PreApplicationResponseCode.RET, "15"),
     //Isyeri_dogrulanamadı(PreApplicationResponseCode.RET, "16"),

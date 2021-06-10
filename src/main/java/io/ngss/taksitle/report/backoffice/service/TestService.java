@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
+import java.util.Date;
 
 @EnableTransactionManagement
 @RestController
@@ -27,11 +28,14 @@ public class TestService {
     DealerRepositoryNewDB dealerRepositoryNewDB;
 
     @Autowired
-    TransactionRepository transactionRepositoryNewDB;
+    TransactionRepository transactionRepository;
 
     @PostMapping(value = "/transactionLastStateReport")
     @Transactional("transactionManager")
     public ResponseEntity getTransactionLastStateCountReport() {
-        return new ResponseEntity(transactionRepositoryNewDB.findAll(), HttpStatus.OK);
+        Date selectedDate = new Date(new Date().getTime() - 86400000L * 1);
+        System.out.println(transactionRepository.findAllByStateUpdateDateAfter(selectedDate));
+        System.out.printf("sda");
+        return new ResponseEntity(transactionRepository.findAll(), HttpStatus.OK);
     }
 }

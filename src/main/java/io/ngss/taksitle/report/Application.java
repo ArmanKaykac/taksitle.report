@@ -18,8 +18,6 @@ public class Application {
 
 	public static void main(String[] args) {
 		SpringApplication.run(Application.class, args);
-//		Properties properties = new Properties();
-//		properties.put("spring.datasource.password", "Qwerty1234!");
 	}
 
 }
